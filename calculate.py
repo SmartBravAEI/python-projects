@@ -31,9 +31,9 @@ def calculadora():
             else:
                 operador = input('No se permite esos simbolos en la operacion.\nIntenta colocar de nuevo el operador: ')
 
-    num1 = float(numero('Coloca el primer numero: '))
+    num1 = numero('Coloca el primer numero: ')
     operador = operacion()
-    num2 = float(numero('Coloca el segundo numero: '))
+    num2 = numero('Coloca el segundo numero: ')
 
 
 
@@ -49,7 +49,7 @@ def calculadora():
     elif operador == '**' or operador == '^':
         resultado = num1 ** num2
     elif operador == '%':
-        resultado = num1 % num2
+        resultado, num2 = zero(num1, num2)
 
     return num1, operador, num2, resultado
 
@@ -58,7 +58,7 @@ while True:
     num1, op, num2, res = calculadora()
     print(f'la operacion {num1} {op} {num2} es el resultado de {res}')
     seguir = input('¿Quieres hacer mas operaciones?.\n1.si\n2.no (cualquier otra letra o simbolo)\n \nRespuesta: ').lower()
-    if seguir == 'si' or seguir == '1':
+    if seguir == 'si' or seguir == '1' or seguir == 'sí':
         continue
     else:
         break
