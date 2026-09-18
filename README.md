@@ -9,15 +9,19 @@ A collection of small Python projects and exercises.
 A command-line calculator that supports basic arithmetic operations:
 
 - Addition (`+`), subtraction (`-`), multiplication (`*`, `×`, `•`)
-- Division (`/`, `÷`) with divide-by-zero handling
+- Division (`/`, `÷`) and modulo (`%`), both with divide-by-zero handling
 - Exponentiation (`**`, `^`)
-- Modulo (`%`)
 
 It validates numeric input, rejects unsupported operators, and lets the user
-chain multiple calculations in a loop.
+chain multiple calculations in a loop (accepts `1`, `si`, or `sí` to continue).
 
 **Run it:**
 
 ```bash
 python calculate.py
 ```
+
+## Changelog
+
+- Reused the divide-by-zero guard for the modulo operator, removed redundant
+  `float()` conversions, and accepted `sí` (with accent) to continue.
