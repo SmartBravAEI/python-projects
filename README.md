@@ -1,21 +1,24 @@
-# Python Projects
+# Python Projects 🐍
 
-A collection of small Python projects and exercises.
+Este es mi repo para ir guardando los proyectos y ejercicios que voy haciendo
+mientras aprendo Python. Todavía es chiquito pero lo voy a ir llenando poco a
+poco.
 
-## Projects
+## Proyectos
 
-### Calculadora ([calculate.py](calculate.py))
+### Calculadora — [calculate.py](calculate.py)
 
-A command-line calculator that supports basic arithmetic operations:
+Mi primera calculadora de consola. Nada muy elaborado, pero ya soporta:
 
-- Addition (`+`), subtraction (`-`), multiplication (`*`, `×`, `•`)
-- Division (`/`, `÷`) and modulo (`%`), both with divide-by-zero handling
-- Exponentiation (`**`, `^`)
+- Suma (`+`), resta (`-`), multiplicación (`*`, `×`, `•`)
+- División (`/`, `÷`) y módulo (`%`), ambas protegidas contra división entre cero
+- Potencia (`**`, `^`)
 
-It validates numeric input, rejects unsupported operators, and lets the user
-chain multiple calculations in a loop (accepts `1`, `si`, or `sí` to continue).
+También valida que lo que escribas sea un número, no te deja meter un operador
+que no reconozca, y te deja encadenar varias operaciones seguidas sin volver a
+correr el script (con `1`, `si` o `sí` para seguir).
 
-**Run it:**
+**Para correrla:**
 
 ```bash
 python calculate.py
@@ -23,16 +26,16 @@ python calculate.py
 
 ## Changelog
 
-- Quitaste el `float()` redundante — cambiaste `num1 = float(numero(...))` por
+- Quité el `float()` redundante — cambié `num1 = float(numero(...))` por
   `num1 = numero(...)`, ya que `numero()` ya devuelve un float.
-- Agregaste `'sí'` a la condición de continuar — antes solo `'si'` o `'1'`
+- Agregué `'sí'` a la condición de continuar — antes solo `'si'` o `'1'`
   seguían el bucle; ahora también acepta la versión con acento.
-- Conectaste el operador `%` a la función `zero()` — antes `%` calculaba
+- Conecté el operador `%` a la función `zero()` — antes `%` calculaba
   `num1 % num2` directo (sin protección), ahora pasa por `zero()` igual que
   la división, para evitar que truene con `ZeroDivisionError`.
-- Corregiste el bug que ese cambio introdujo — al conectar `%` a `zero()`,
+- Arreglé el bug que ese cambio introdujo — al conectar `%` a `zero()`,
   la función siempre devolvía `num1 / num2` sin importar el operador. Le
-  agregaste un tercer parámetro `op` a `zero(num1, num2, op)`, con un
+  agregué un tercer parámetro `op` a `zero(num1, num2, op)`, con un
   `if op == "/"` / `else` para que calcule división o módulo según
-  corresponda, y actualizaste las dos llamadas (`zero(num1, num2, "/")` y
+  corresponda, y actualicé las dos llamadas (`zero(num1, num2, "/")` y
   `zero(num1, num2, '%')`) para pasar el operador correcto.
