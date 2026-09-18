@@ -14,10 +14,13 @@ def calculadora():
                 print( 'debes colocar un numero.')
             
 
-    def zero(num1, num2):           
+    def zero(num1, num2, op):           
         while True:
             try:
-                return num1 / num2, num2
+                if op == "/":
+                    return num1 / num2, num2
+                else:
+                    return num1 % num2, num2
             except ZeroDivisionError:
                 print('No se puede dividir los numero entre cero.')
             num2 = numero('Vuelve a colocar el segundo numero: ')
@@ -45,11 +48,11 @@ def calculadora():
     elif operador == "*" or operador == "×" or operador == '•':
         resultado = num1 * num2
     elif operador == '/' or operador == '÷':
-        resultado, num2 = zero(num1, num2)
+        resultado, num2 = zero(num1, num2, "/")
     elif operador == '**' or operador == '^':
         resultado = num1 ** num2
     elif operador == '%':
-        resultado, num2 = zero(num1, num2)
+        resultado, num2 = zero(num1, num2, '%')
 
     return num1, operador, num2, resultado
 

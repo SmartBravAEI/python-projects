@@ -23,5 +23,16 @@ python calculate.py
 
 ## Changelog
 
-- Reused the divide-by-zero guard for the modulo operator, removed redundant
-  `float()` conversions, and accepted `sí` (with accent) to continue.
+- Quitaste el `float()` redundante — cambiaste `num1 = float(numero(...))` por
+  `num1 = numero(...)`, ya que `numero()` ya devuelve un float.
+- Agregaste `'sí'` a la condición de continuar — antes solo `'si'` o `'1'`
+  seguían el bucle; ahora también acepta la versión con acento.
+- Conectaste el operador `%` a la función `zero()` — antes `%` calculaba
+  `num1 % num2` directo (sin protección), ahora pasa por `zero()` igual que
+  la división, para evitar que truene con `ZeroDivisionError`.
+- Corregiste el bug que ese cambio introdujo — al conectar `%` a `zero()`,
+  la función siempre devolvía `num1 / num2` sin importar el operador. Le
+  agregaste un tercer parámetro `op` a `zero(num1, num2, op)`, con un
+  `if op == "/"` / `else` para que calcule división o módulo según
+  corresponda, y actualizaste las dos llamadas (`zero(num1, num2, "/")` y
+  `zero(num1, num2, '%')`) para pasar el operador correcto.
