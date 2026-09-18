@@ -24,8 +24,23 @@ correr el script (con `1`, `si` o `sí` para seguir).
 python calculate.py
 ```
 
+### Mazmorra — [mazmorra/mazmorra.py](mazmorra/mazmorra.py)
+
+Un mini juego de exploración en la terminal. Genera un mapa cuadrado
+aleatorio (tamaño entre 7x7 y 16x16) con paredes 🧱, cofres 🧰 y casillas
+libres, y te pone a mover a tu personaje 😎 con `w`, `a`, `s`, `d` para
+recorrerlo. No te deja atravesar paredes ni salirte del mapa.
+
+**Para correrlo:**
+
+```bash
+python mazmorra/mazmorra.py
+```
+
 ## Changelog
 
+- Agregué el proyecto Mazmorra: un mini juego de exploración en un mapa
+  aleatorio con matrices.
 - Quité el `float()` redundante — cambié `num1 = float(numero(...))` por
   `num1 = numero(...)`, ya que `numero()` ya devuelve un float.
 - Agregué `'sí'` a la condición de continuar — antes solo `'si'` o `'1'`
