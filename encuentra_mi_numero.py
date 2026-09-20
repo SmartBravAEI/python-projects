@@ -13,6 +13,7 @@ def numero_val(num):
             print(f'el simbolo no es un numero, {rept}')
 
 numero = numero_val(num_adiv)
+intentos = 1
 
 while True:
 
@@ -20,15 +21,18 @@ while True:
         if numero < num_ran:
             print(f'Tu numero esta abajo de el numero que estoy pensando.')
             numero = numero_val(rept)
+            intentos += 1
             continue
         elif numero > num_ran:
             print(f'Tu numero esta arriba del numero que estoy pensando.')
             numero = numero_val(rept)
+            intentos += 1
             continue
         else:
-            print('Felicidades acabas de atinarle al numero')
+            print(f'Felicidades acabas de atinarle al numero en {intentos} intento(s)')
             break
     else:
         print('ese numero no esta en mi base de datos...')
         numero = numero_val(rept)
+        intentos += 1
         continue

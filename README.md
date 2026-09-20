@@ -24,6 +24,20 @@ correr el script (con `1`, `si` o `sí` para seguir).
 python calculate.py
 ```
 
+**Changelog**
+
+- Quité el `float()` redundante: `numero()` ya devuelve un float, así que
+  `num1 = float(numero(...))` pasó a `num1 = numero(...)`.
+- Agregué `'sí'` (con acento) a las respuestas para continuar.
+- Conecté `%` a la función `zero()`, porque antes `num1 % num2` tronaba con
+  `ZeroDivisionError`.
+- Bug que introduje con ese cambio: `zero()` siempre hacía `num1 / num2`, sin
+  importar el operador. Lo arreglé con un tercer parámetro, `zero(num1, num2, op)`,
+  que decide si divide o saca el módulo.
+
+**Qué practiqué:** funciones anidadas, `try/except`, validación de entrada con
+`while True`.
+
 ### Mazmorra — [mazmorra/mazmorra.py](mazmorra/mazmorra.py)
 
 Un mini juego de exploración en la terminal. Genera un mapa cuadrado
@@ -36,6 +50,19 @@ recorrerlo. No te deja atravesar paredes ni salirte del mapa.
 ```bash
 python mazmorra/mazmorra.py
 ```
+
+**Changelog**
+
+- Versión inicial: mapa aleatorio como matriz y movimiento con `w`, `a`, `s`, `d`.
+- Refactor: la generación del mapa ahora vive en `terreno()`, y los 4 bloques
+  `if/elif` de movimiento se reemplazaron por diccionarios de direcciones y
+  límites.
+- Ahora acepta las teclas en mayúscula (`.lower()`).
+
+**Qué practiqué:** matrices (listas de listas), funciones que devuelven varios
+valores, diccionarios para quitar código repetido.
+
+**Pendiente:** condición de victoria (por ejemplo, llegar al cofre 🧰).
 
 ### Encuentra mi número — [encuentra_mi_numero.py](encuentra_mi_numero.py)
 
@@ -50,25 +77,10 @@ pedir, y si te sales del rango 0-100 también te avisa.
 python encuentra_mi_numero.py
 ```
 
-## Changelog
+**Changelog**
 
-- Agregué el juego Encuentra mi número: adivinar un número aleatorio del 0 al
-  100 con pistas de arriba/abajo.
-- Reorganicé Mazmorra: metí la generación del mapa en la función `terreno()`,
-  cambié los 4 bloques `if/elif` de movimiento por diccionarios de direcciones
-  y límites, y ahora acepta las teclas en mayúscula (`.lower()`).
-- Agregué el proyecto Mazmorra: un mini juego de exploración en un mapa
-  aleatorio con matrices.
-- Quité el `float()` redundante — cambié `num1 = float(numero(...))` por
-  `num1 = numero(...)`, ya que `numero()` ya devuelve un float.
-- Agregué `'sí'` a la condición de continuar — antes solo `'si'` o `'1'`
-  seguían el bucle; ahora también acepta la versión con acento.
-- Conecté el operador `%` a la función `zero()` — antes `%` calculaba
-  `num1 % num2` directo (sin protección), ahora pasa por `zero()` igual que
-  la división, para evitar que truene con `ZeroDivisionError`.
-- Arreglé el bug que ese cambio introdujo — al conectar `%` a `zero()`,
-  la función siempre devolvía `num1 / num2` sin importar el operador. Le
-  agregué un tercer parámetro `op` a `zero(num1, num2, op)`, con un
-  `if op == "/"` / `else` para que calcule división o módulo según
-  corresponda, y actualicé las dos llamadas (`zero(num1, num2, "/")` y
-  `zero(num1, num2, '%')`) para pasar el operador correcto.
+- Versión inicial: número aleatorio del 0 al 100 con pistas de arriba/abajo.
+- Agregué un contador de intentos: al ganar te dice en cuántos lo lograste.
+
+**Qué practiqué:** `random`, validación de entrada con `try/except ValueError`,
+ciclos con condiciones anidadas.
