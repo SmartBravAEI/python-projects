@@ -37,8 +37,23 @@ recorrerlo. No te deja atravesar paredes ni salirte del mapa.
 python mazmorra/mazmorra.py
 ```
 
+### Encuentra mi número — [encuentra_mi_numero.py](encuentra_mi_numero.py)
+
+Un juego de adivinar el número. La computadora piensa un número del 0 al 100
+y tú le vas atinando; te dice si tu número está abajo o arriba del que pensó
+hasta que lo encuentras. Si escribes algo que no es número, te lo vuelve a
+pedir, y si te sales del rango 0-100 también te avisa.
+
+**Para correrlo:**
+
+```bash
+python encuentra_mi_numero.py
+```
+
 ## Changelog
 
+- Agregué el juego Encuentra mi número: adivinar un número aleatorio del 0 al
+  100 con pistas de arriba/abajo.
 - Reorganicé Mazmorra: metí la generación del mapa en la función `terreno()`,
   cambié los 4 bloques `if/elif` de movimiento por diccionarios de direcciones
   y límites, y ahora acepta las teclas en mayúscula (`.lower()`).
