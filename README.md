@@ -39,6 +39,9 @@ python mazmorra/mazmorra.py
 
 ## Changelog
 
+- Reorganicé Mazmorra: metí la generación del mapa en la función `terreno()`,
+  cambié los 4 bloques `if/elif` de movimiento por diccionarios de direcciones
+  y límites, y ahora acepta las teclas en mayúscula (`.lower()`).
 - Agregué el proyecto Mazmorra: un mini juego de exploración en un mapa
   aleatorio con matrices.
 - Quité el `float()` redundante — cambié `num1 = float(numero(...))` por
